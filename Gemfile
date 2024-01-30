@@ -30,6 +30,8 @@ gem "devise"
 
 gem "nokogiri"
 
+gem "tailwindcss-rails", "~> 2.0", ">= 2.0.30"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
