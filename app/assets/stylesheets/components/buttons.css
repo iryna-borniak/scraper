@@ -1,0 +1,9 @@
+@layer components {
+  .btn-blue {
+    @apply rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium;
+  }
+
+  .btn-submit {
+    @apply rounded-lg py-3 px-7 bg-blue-600 text-white inline-block font-medium cursor-pointer mr-2 mb-3.5;
+  }
+}
