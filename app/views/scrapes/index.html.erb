@@ -1,0 +1,9 @@
+<section class="content flex flex-col gap-10">  
+  <h1>Scraper</h1>
+  
+  <%= render partial: "scrapes/form" %>  
+  
+  <% if @result.present? %>
+    <%= render partial: "scrapes/product_details", locals: { result: @result } %>
+  <% end %>
+</section>

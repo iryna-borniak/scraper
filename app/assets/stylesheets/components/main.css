@@ -1,5 +1,5 @@
 @layer components {
   .content {
-    @apply max-w-3xl mt-36 mx-auto w-full px-5;
+    @apply max-w-3xl my-36 mx-auto w-full px-5;
   }  
 }

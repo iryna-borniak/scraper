@@ -30,6 +30,8 @@ gem "devise"
 
 gem "nokogiri"
 
+gem "httparty"
+
 gem "simple_form"
 
 gem "tailwindcss-rails", "~> 2.0", ">= 2.0.30"

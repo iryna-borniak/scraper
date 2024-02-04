@@ -119,6 +119,9 @@ GEM
       i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -145,6 +148,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.21.2)
     msgpack (1.7.2)
+    multi_xml (0.6.0)
     mutex_m (0.2.0)
     net-imap (0.4.9.1)
       date
@@ -294,6 +298,7 @@ DEPENDENCIES
   devise
   factory_bot_rails (~> 6.2)
   faker (~> 3.2, >= 3.2.1)
+  httparty
   importmap-rails
   jbuilder
   nokogiri

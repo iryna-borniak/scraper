@@ -4,7 +4,7 @@
   }
 
   h1 {
-    @apply text-4xl text-slate-900 font-semibold my-3;
+    @apply text-4xl text-slate-900 font-semibold my-3 mx-auto;
   }
 
   h2 {
