@@ -109,6 +109,9 @@ GEM
     diff-lcs (1.5.0)
     drb (2.2.0)
       ruby2_keywords
+    easy_translate (0.5.1)
+      thread
+      thread_safe
     erubi (1.12.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
@@ -262,6 +265,8 @@ GEM
     tailwindcss-rails (2.3.0-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.3.0)
+    thread (0.2.2)
+    thread_safe (0.3.6)
     timeout (0.4.1)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
@@ -296,6 +301,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  easy_translate (~> 0.5.1)
   factory_bot_rails (~> 6.2)
   faker (~> 3.2, >= 3.2.1)
   httparty

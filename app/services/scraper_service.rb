@@ -34,15 +34,19 @@ class ScraperService
   private
 
   def extract_title(parsed_page)
-    parsed_page.css(".title-text").text
+    title = parsed_page.at_css(".title-text").text
+
+    translate_text(title)
   end
 
   def extract_description(parsed_page)
-    parsed_page.css('meta[name="description"]').attr("content")
+    description = parsed_page.at_css('meta[name="description"]').attr("content")
+
+    translate_text(description)
   end
 
   def extract_image_src(parsed_page)
-    parsed_page.css(".J_ImageFirstRender").attr("src")
+    parsed_page.at_css(".J_ImageFirstRender").attr("src")
   end
 
   def extract_products(parsed_page)
@@ -50,9 +54,14 @@ class ScraperService
     final_products = {}
 
     products.join.scan(/"([^"]+)":\{([^}]+)\}/) do |product_name, product_details|
-      final_products[product_name] = product_details.scan(/"price":"([^"]+)"/).flatten.first
+      translated_name = translate_text(product_name)
+      final_products[translated_name] = product_details.scan(/"price":"([^"]+)"/).flatten.first
     end
 
     final_products
+  end
+
+  def translate_text(text)
+    EasyTranslate.translate(text, to: "uk")
   end
 end
