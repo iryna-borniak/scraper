@@ -51,11 +51,15 @@ class ScraperService
 
   def extract_products(parsed_page)
     products = parsed_page.to_s.scan(/"skuMap":\s*\{(.*)\}/)
+    exchange_rate = fetch_exchange_rate
     final_products = {}
 
     products.join.scan(/"([^"]+)":\{([^}]+)\}/) do |product_name, product_details|
       translated_name = translate_text(product_name)
-      final_products[translated_name] = product_details.scan(/"price":"([^"]+)"/).flatten.first
+      price_cny = product_details.scan(/"price":"([^"]+)"/).flatten.first
+      converted_price = (exchange_rate * price_cny.to_f).round(2)
+
+      final_products[translated_name] = exchange_rate ? "₴#{converted_price}" : "¥#{price_cny}"
     end
 
     final_products
@@ -63,5 +67,16 @@ class ScraperService
 
   def translate_text(text)
     EasyTranslate.translate(text, to: "uk")
+  end
+
+  def fetch_exchange_rate
+    response = HTTParty.get("https://api.monobank.ua/bank/currency")
+
+    return nil unless response.code == 200
+
+    rates = response.parsed_response
+    rate_info = rates.find { |rate| rate["currencyCodeA"] == 156 && rate["currencyCodeB"] == 980 }
+
+    rate_info["rateCross"]
   end
 end
