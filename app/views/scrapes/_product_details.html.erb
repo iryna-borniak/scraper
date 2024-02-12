@@ -1,0 +1,22 @@
+<img src="<%= result[:image_src] %>" alt="<%= result[:title] %>">
+    
+<h2><%= result[:title] %></h2>
+    
+<p><%= result[:description] %></p>    
+
+<table class="min-w-full table-auto text-gray-500 dark:text-gray-400">
+  <thead class="text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th class="text-left px-4 py-2">Модель</th>
+      <th class="text-left px-4 py-2">Ціна</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% result[:products].each do |product_name, price| %>
+      <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+        <td class="px-4 py-2"><%= product_name %></td>
+        <td class="px-4 py-2"><%= "#{price}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

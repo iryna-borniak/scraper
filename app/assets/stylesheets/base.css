@@ -4,10 +4,10 @@
   }
 
   h1 {
-    @apply text-4xl text-slate-900 font-semibold my-3;
+    @apply text-4xl text-slate-900 font-semibold my-3 mx-auto;
   }
 
   h2 {
-    @apply text-3xl text-slate-900 font-semibold mb-3;
+    @apply text-center text-3xl text-slate-900 font-semibold mb-3;
   }
 }

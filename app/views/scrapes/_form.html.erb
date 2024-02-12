@@ -1,0 +1,4 @@
+<%= simple_form_for :scrape, url: root_path, method: :get, html: { class: "flex gap-3" } do |f| %>
+  <%= f.input :url, label: false, placeholder: "Введіть URL-адресу", wrapper_html: { class: "w-full" }, input_html: { class: "form-input h-12 m-0" } %>
+  <%= f.button :submit, "Отримати дані", class: "btn-submit h-12 m-0" %>
+<% end %>
