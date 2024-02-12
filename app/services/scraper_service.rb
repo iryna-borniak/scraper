@@ -50,19 +50,22 @@ class ScraperService
   end
 
   def extract_products(parsed_page)
-    products = parsed_page.to_s.scan(/"skuMap":\s*\{(.*)\}/)
     exchange_rate = fetch_exchange_rate
     final_products = {}
 
-    products.join.scan(/"([^"]+)":\{([^}]+)\}/) do |product_name, product_details|
-      translated_name = translate_text(product_name)
-      price_cny = product_details.scan(/"price":"([^"]+)"/).flatten.first
-      converted_price = (exchange_rate * price_cny.to_f).round(2)
+    regex = /"([^"]+)":\{[^}]*"price":"([^"]+)"[^}]*\}/
 
-      final_products[translated_name] = exchange_rate ? "₴#{converted_price}" : "¥#{price_cny}"
+    parsed_page.to_s.scan(regex) do |product_name, price_cny|
+      translated_name = translate_text(product_name)
+
+      final_products[translated_name] = exchange_rate ? "₴#{convert_price(exchange_rate, price_cny)}" : "¥#{price_cny}"
     end
 
     final_products
+  end
+
+  def convert_price(exchange_rate, price_cny)
+    (exchange_rate * price_cny.to_f).round(2)
   end
 
   def translate_text(text)
