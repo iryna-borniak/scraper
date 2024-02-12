@@ -1,0 +1,11 @@
+.flash {
+  @apply w-max py-2 px-3 mb-10 mx-auto mt-24 font-medium rounded-lg absolute left-0 right-0;
+}
+
+.flash-notice {
+  @apply bg-green-50 text-green-500;
+}
+
+.flash-alert {
+  @apply bg-red-50 text-red-500;
+}

@@ -1,0 +1,22 @@
+uk:
+  en: English  
+  activerecord:    
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: "Логін не може бути порожнім."
+              taken: "Логін вже зайнято."
+            first_name:
+              blank: "Ім'я не може бути порожнім."
+            last_name:
+              blank: "Прізвище не може бути порожнім."
+            email:
+              blank: "Електронна пошта не може бути порожньою."
+              taken: "Електронна пошта вже зайнята."
+            password:
+              blank: "Пароль не може бути порожнім."
+              too_short: "Пароль надто короткий (мінімум %{count} символів)"
+            password_confirmation:
+              confirmation: "Підтвердження не співпадає з паролем"

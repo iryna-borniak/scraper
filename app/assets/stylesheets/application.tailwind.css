@@ -3,6 +3,7 @@
 @import "./components/main.css";
 @import "./components/buttons.css";
 @import "./components/form.css";
+@import "./components/flash.css";
 
 @tailwind base;
 @tailwind components;

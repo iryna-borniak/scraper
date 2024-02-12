@@ -1,0 +1,16 @@
+uk:
+  en: English
+  devise:
+    failure:      
+      invalid: "Невірний email чи пароль."      
+      not_found_in_database: "Невірний email чи пароль."      
+      unauthenticated: "Вам необхідно увійти до системи чи зареєструватися." 
+    registrations:      
+      signed_up: "Ласкаво просимо! Ви успішно зареєструвалися."      
+    sessions:
+      signed_in: "Ви увійшли до системи."
+      signed_out: "Ви вийшли з системи."
+  errors:
+    messages:      
+      wrong_email: "Ваш логін невірний"
+      wrong_password: "Ваш пароль невірний"      
